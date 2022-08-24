@@ -1,19 +1,19 @@
 import { test, expect } from 'vitest'
 import { tokenizer, TokenTypes } from './tokenizer'
 
-test.skip('tokenizer', () => {
-  const code = `(add (subtract 4 2))`
+test('(add 2 (subtract 4 2))', () => {
+  const code = `(add 2 (subtract 4 2))`
 
   const tokens = [
-    { type: 'paren', value: '(' },
-    { type: 'name', value: 'add' },
-    { type: 'number', value: '2' },
-    { type: 'paren', value: '(' },
-    { type: 'name', value: 'subtract' },
-    { type: 'number', value: '4' },
-    { type: 'number', value: '2' },
-    { type: 'paren', value: ')' },
-    { type: 'paren', value: ')' }
+    { type: TokenTypes.Paren, value: '(' },
+    { type: TokenTypes.Name, value: 'add' },
+    { type: TokenTypes.Number, value: '2' },
+    { type: TokenTypes.Paren, value: '(' },
+    { type: TokenTypes.Name, value: 'subtract' },
+    { type: TokenTypes.Number, value: '4' },
+    { type: TokenTypes.Number, value: '2' },
+    { type: TokenTypes.Paren, value: ')' },
+    { type: TokenTypes.Paren, value: ')' }
   ]
   expect(tokenizer(code)).toEqual(tokens)
 })
@@ -44,8 +44,8 @@ test('number', () => {
   expect(tokenizer(code)).toEqual(tokens)
 })
 
-test.skip('(add 1 2)', () => {
-  const code = `(add (subtract 4 2))`
+test('(add 1 2)', () => {
+  const code = `(add 1 2)`
 
   const tokens = [
     { type: TokenTypes.Paren, value: '(' },
