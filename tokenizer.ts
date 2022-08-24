@@ -1,10 +1,10 @@
 export enum TokenTypes {
   Paren,
-  Name,
+  String,
   Number
 }
 
-interface Token {
+export interface Token {
   type: TokenTypes
   value: string
 }
@@ -47,7 +47,7 @@ export function tokenizer(code: string) {
         char = code[++current]
       }
       tokens.push({
-        type: TokenTypes.Name,
+        type: TokenTypes.String,
         value
       })
     }

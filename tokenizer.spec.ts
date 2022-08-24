@@ -6,10 +6,10 @@ test('(add 2 (subtract 4 2))', () => {
 
   const tokens = [
     { type: TokenTypes.Paren, value: '(' },
-    { type: TokenTypes.Name, value: 'add' },
+    { type: TokenTypes.String, value: 'add' },
     { type: TokenTypes.Number, value: '2' },
     { type: TokenTypes.Paren, value: '(' },
-    { type: TokenTypes.Name, value: 'subtract' },
+    { type: TokenTypes.String, value: 'subtract' },
     { type: TokenTypes.Number, value: '4' },
     { type: TokenTypes.Number, value: '2' },
     { type: TokenTypes.Paren, value: ')' },
@@ -34,7 +34,7 @@ test('right parent', () => {
 
 test('add', () => {
   const code = `add`
-  const tokens = [{ type: TokenTypes.Name, value: 'add' }]
+  const tokens = [{ type: TokenTypes.String, value: 'add' }]
   expect(tokenizer(code)).toEqual(tokens)
 })
 
@@ -49,7 +49,7 @@ test('(add 1 2)', () => {
 
   const tokens = [
     { type: TokenTypes.Paren, value: '(' },
-    { type: TokenTypes.Name, value: 'add' },
+    { type: TokenTypes.String, value: 'add' },
     { type: TokenTypes.Number, value: '1' },
     { type: TokenTypes.Number, value: '2' },
     { type: TokenTypes.Paren, value: ')' }
