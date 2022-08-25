@@ -1,28 +1,31 @@
 export enum NodeTypes {
-  Program,
-  NumberLiteral,
-  StringLiteral,
-  CallExpression
+  Program = 'Program',
+  NumberLiteral = 'NumberLiteral',
+  StringLiteral = 'StringLiteral',
+  CallExpression = 'CallExpression'
 }
 
 interface Node {
   type: NodeTypes
 }
-type ChildNode = NumberLiteralNode | CallExpressionNode | StringLiteralNode
+export type ChildNode =
+  | NumberLiteralNode
+  | CallExpressionNode
+  | StringLiteralNode
 
-interface RootNode extends Node {
+export interface RootNode extends Node {
   type: NodeTypes.Program
   body: ChildNode[]
 }
-interface NumberLiteralNode extends Node {
+export interface NumberLiteralNode extends Node {
   type: NodeTypes.NumberLiteral
   value: string
 }
-interface StringLiteralNode extends Node {
+export interface StringLiteralNode extends Node {
   type: NodeTypes.StringLiteral
   value: string
 }
-interface CallExpressionNode extends Node {
+export interface CallExpressionNode extends Node {
   type: NodeTypes.CallExpression
   name: string
   params: ChildNode[]
