@@ -16,6 +16,7 @@ export type ChildNode =
 export interface RootNode extends Node {
   type: NodeTypes.Program
   body: ChildNode[]
+  context?: ChildNode[]
 }
 export interface NumberLiteralNode extends Node {
   type: NodeTypes.NumberLiteral
@@ -29,6 +30,7 @@ export interface CallExpressionNode extends Node {
   type: NodeTypes.CallExpression
   name: string
   params: ChildNode[]
+  context?: ChildNode[]
 }
 
 export function createRootNode(): RootNode {
